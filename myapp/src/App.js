@@ -1,8 +1,11 @@
+let count=0
+function App(){
 
-function App() {
-  return (
-    <h1>Hello world</h1>
-  );
+
+function counter(){
+  count+=1
+  console.log(count);
+  }
+<button onClick={counter}>Click here</button>
 }
-
 export default App;
