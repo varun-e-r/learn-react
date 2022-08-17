@@ -1,16 +1,24 @@
-let count=0
+
+import Employee from "./Employee";
+
+let emp=[{name:'musk',age:20},
+        {name:'dhoni',age:30},
+        {name:'kohli',age:40}]
+
 function App(){
 
-
-function counter(){
-    count+=1
-    console.log(count);
-    }
 return(
-<div>
-<button onClick={counter}>Click here</button>
-<h1> hello world</h1>
+<div className="App">
+{
+    emp.map((obj,index)=>
+        
+        <Employee key={index} {...obj} />
+        
+    )
+}
+
+
 </div>
-)
-};
+);
+}
 export default App;
