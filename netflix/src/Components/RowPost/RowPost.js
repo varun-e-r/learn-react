@@ -12,7 +12,6 @@ function RowPost(props) {
     axios
       .get(props.url)
       .then((response) => {
-        console.log(response.data.results);
         setMovies(response.data.results);
       })
       .catch((err) => {
@@ -23,12 +22,10 @@ function RowPost(props) {
     height: "390",
     width: "100%",
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
+    autoplay: 1,
     },
   };
   const handleMovie = (id) => {
-    console.log(id);
     axios
       .get(`movie/${id}/videos?api_key=${API_KEY}&language=en-US`)
       .then((response) => {
@@ -39,6 +36,7 @@ function RowPost(props) {
         }
       });
   };
+
 
   return (
     <div className="row">
@@ -53,7 +51,9 @@ function RowPost(props) {
           />
         ))}
       </div>
+      <div className="row" >
       {urlId && <Youtube videoId={urlId.key} opts={opts} />}
+      </div>
     </div>
   );
 }
